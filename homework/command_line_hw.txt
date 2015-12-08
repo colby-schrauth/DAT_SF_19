@@ -1,0 +1,46 @@
+1.
+  i. Look at the head and tail. What does each column mean? What does each row mean?
+     ANSWER: $ head chipotle.tsv
+             $ tail chipotle.tsv
+
+             Columns:
+             order_id = unique identifier for each order. May have multiple orders (rows).
+             quantity = the number of identical orders within the specified order_id, mapped directly to all other column values
+             item_name = the name of the item as identified by Chipotle
+             choice_description = selection of optional ingredients by the customer
+             item_price = price of the selected item and optional ingredients
+
+             Rows:
+             each row represents one, or multiple, item(s) order
+
+1.
+  ii. How many orders do there appear to be?
+    ANSWER: $ tail chipotle.tsv (1,834 Unique Order IDs)
+
+1.
+  iii. How many lines are in the file?
+    ANSWER: $ wc -l chipotle.tsv (4,623)
+
+1.
+  iv. Which burrito is more popular, steak or chicken?
+    ANSWER: $ grep -i 'Steak Burrito' chipotle.tsv | wc -l (368)
+            $ grep -i 'Chicken Burrito' chipotle.tsv | wc -l (553)
+
+            Chicken
+
+1.
+  v. Do chicken burritos more often have black beans or pinto beans?
+    ANSWER: $ grep -i 'Chicken Burrito' chipotle.tsv | grep -i 'Black Beans' | wc -l (282)
+            $ grep -i 'Chicken Burrito' chipotle.tsv | grep -i 'Pinto Beans' | wc -l (105)
+
+            Black Beans
+
+2. Make a list of all of the CSV or TSV files using a single command
+  ANSWER: $ find . -name *.?sv (11)
+
+3. Count the number of occurrences of the word 'dictionary' across all files
+  ANSWER: $ grep -r -i 'dictionary' . | grep -o -i 'dictionary' | wc -l (5)
+
+4. Optional
+  ANSWER: Work in progress
+find . -name *.?csv
